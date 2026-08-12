@@ -1,6 +1,6 @@
 # Technical Report — SME Brief
 
-**Team ID:** REPLACE_ME_TEAM_ID  
+**Team ID:** 1118156-sme-brief-local-rag-for-small-businesses  
 **Domain:** corporate_enterprise  
 **Model:** Qwen2.5-1.5B-Instruct-Q4_K_M
 
@@ -26,27 +26,36 @@ African small and medium enterprises — especially in Francophone West Africa �
 
 ## Benchmarks
 
-Measured by `adtc-profiler` (participant mode) on the submission laptop.
+Measured by `adtc-profiler` (participant mode) on the participant's laptop.
 
 | Metric | Value |
 |---|---|
-| Machine | participant laptop (8 GB RAM, 4 vCPU, iGPU) |
-| RAM at peak | 1740.66 MB |
-| Time to first token | 23871.06 ms |
-| Generation speed | 7.47 tokens/sec |
-| Thermal throttling | Yes (99.0 °C peak core temp) |
+| Machine | Intel i5-6200U, 7.6 GB RAM, no discrete GPU (CPU-only) |
+| RAM at peak | 1812.26 MB |
+| Time to first token | 23371.13 ms |
+| Generation speed | 7.77 tokens/sec |
+| Thermal throttling | Yes (93.0 °C peak core temp) |
 | Accuracy (arc_easy, 50 samples) | 74.0% |
 
 ### Score estimate (formula from ADTC rules)
-- S_perf = 100 × (TPS / 15.0) = 100 × (7.47 / 15.0) = 49.80
-- S_eff  = 100 × ((7000 − peak_rss_mb) / 7000) = 100 × ((7000 − 1740.66) / 7000) = 75.13
+
+> Note: the previous version of this report contained a sign error — it wrote
+> `− P_thermal` with `P_thermal = −10`, which subtracted a negative and *rewarded*
+> throttling. The thermal term is a penalty: 10 points are subtracted when
+> throttling is observed. The corrected calculation is below.
+
+- S_perf = 100 × (TPS / 15.0) = 100 × (7.77 / 15.0) = 51.80
+- S_eff  = 100 × ((7000 − peak_rss_mb) / 7000) = 100 × ((7000 − 1812.26) / 7000) = 74.11
 - S_acc  = accuracy_fraction × 100 = 0.74 × 100 = 74.00
-- P_thermal = −10 (thermal throttling was observed: core temp peaked at 99.0 °C)
+- Thermal penalty = −10 (throttling observed: core temp peaked at 93.0 °C)
 - African-language bonus = +10 (african_alpha_claim is true in metadata.json)
 
-S_total ≈ 0.50·S_acc + 0.30·S_perf + 0.20·S_eff − P_thermal + 10
-       = 0.50·74.00 + 0.30·49.80 + 0.20·75.13 − (−10) + 10
-       = 37.00 + 14.94 + 15.03 + 10 + 10
-       = 86.97
+S_total ≈ 0.50·S_acc + 0.30·S_perf + 0.20·S_eff − 10 (thermal) + 10 (bonus)
+       = 0.50·74.00 + 0.30·51.80 + 0.20·74.11 − 10 + 10
+       = 37.00 + 15.54 + 14.82 + 0
+       = 67.36
 
-(Note: the official score is computed by the ADTC organizers from submission.json; this is a self-computed estimate using the documented formula.)
+(Note: the official score is computed by the ADTC organizers from submission.json;
+this is a self-computed estimate using the documented formula. The thermal penalty
+and the African bonus currently cancel; the audit run on the organizers' Standard
+Laptop (better-cooled) is expected to remove the throttle while keeping the +10 bonus.)
