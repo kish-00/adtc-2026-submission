@@ -14,7 +14,7 @@ MODEL_FILE="$MODEL_DIR/qwen2.5-1.5b-instruct-q4_k_m.gguf"
 
 # Public Hugging Face GGUF (no auth required)
 MODEL_URL="https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct-GGUF/resolve/main/qwen2.5-1.5b-instruct-q4_k_m.gguf"
-EXPECTED_SIZE_BYTES=1006632960
+EXPECTED_SIZE_BYTES=1117320736
 
 mkdir -p "$MODEL_DIR"
 

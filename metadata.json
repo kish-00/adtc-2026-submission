@@ -1,12 +1,12 @@
 {
-  "team_id": "REPLACE_ME_TEAM_ID",
+  "team_id": "solo-submission",
   "domain": "corporate_enterprise",
   "language_scope": ["fr", "en"],
   "african_alpha_claim": true,
   "budget_laptop_claim": true,
   "submitter": {
-    "name": "REPLACE_ME_NAME",
-    "email": "REPLACE_ME_EMAIL",
+    "name": "Ian Kinuthia",
+    "email": "iankinuthia00@gmail.com",
     "github_handle": "kish-00"
   },
   "cross_disciplinary_pairing": {
