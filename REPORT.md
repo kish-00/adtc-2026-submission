@@ -31,10 +31,10 @@ Measured by `adtc-profiler` (participant mode) on the participant's laptop.
 | Metric | Value |
 |---|---|
 | Machine | Intel i5-6200U, 7.6 GB RAM, no discrete GPU (CPU-only) |
-| RAM at peak | 1812.26 MB |
-| Time to first token | 23371.13 ms |
-| Generation speed | 7.77 tokens/sec |
-| Thermal throttling | Yes (93.0 °C peak core temp) |
+| RAM at peak | 1821.75 MB |
+| Time to first token | 20942.68 ms |
+| Generation speed | 8.15 tokens/sec |
+| Thermal throttling | Yes (92.0 °C peak core temp) |
 | Accuracy (arc_easy, 50 samples) | 74.0% |
 
 ### Score estimate (formula from ADTC rules)
@@ -44,16 +44,16 @@ Measured by `adtc-profiler` (participant mode) on the participant's laptop.
 > throttling. The thermal term is a penalty: 10 points are subtracted when
 > throttling is observed. The corrected calculation is below.
 
-- S_perf = 100 × (TPS / 15.0) = 100 × (7.77 / 15.0) = 51.80
-- S_eff  = 100 × ((7000 − peak_rss_mb) / 7000) = 100 × ((7000 − 1812.26) / 7000) = 74.11
+- S_perf = 100 × (TPS / 15.0) = 100 × (8.15 / 15.0) = 54.33
+- S_eff  = 100 × ((7000 − peak_rss_mb) / 7000) = 100 × ((7000 − 1821.75) / 7000) = 73.98
 - S_acc  = accuracy_fraction × 100 = 0.74 × 100 = 74.00
-- Thermal penalty = −10 (throttling observed: core temp peaked at 93.0 °C)
+- Thermal penalty = −10 (throttling observed: core temp peaked at 92.0 °C)
 - African-language bonus = +10 (african_alpha_claim is true in metadata.json)
 
 S_total ≈ 0.50·S_acc + 0.30·S_perf + 0.20·S_eff − 10 (thermal) + 10 (bonus)
-       = 0.50·74.00 + 0.30·51.80 + 0.20·74.11 − 10 + 10
-       = 37.00 + 15.54 + 14.82 + 0
-       = 67.36
+       = 0.50·74.00 + 0.30·54.33 + 0.20·73.98 − 10 + 10
+       = 37.00 + 16.30 + 14.80 + 0
+       = 68.10
 
 (Note: the official score is computed by the ADTC organizers from submission.json;
 this is a self-computed estimate using the documented formula. The thermal penalty
