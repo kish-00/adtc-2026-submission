@@ -1,0 +1,86 @@
+{
+  "schema_version": "1.1.0",
+  "profiler_version": "adtc-profiler 0.1.0",
+  "submission": {
+    "team_id": "1118156-sme-brief-local-rag-for-small-businesses",
+    "domain": "corporate_enterprise",
+    "language_scope": [
+      "fr",
+      "en"
+    ],
+    "african_alpha_claim": true,
+    "budget_laptop_claim": true,
+    "submitter": {
+      "name": "Ian Kinuthia",
+      "email": "iankinuthia00@gmail.com",
+      "github_handle": "kish-00"
+    },
+    "cross_disciplinary_pairing": {
+      "discipline": "small_business_finance",
+      "load_bearing": true,
+      "description": "SME Brief serves small-business financial management for West African SMEs operating across French/English language borders, with domain-specific reasoning over invoices, contracts, supplier statements, and cash flow in XOF and USD."
+    },
+    "test_prompts": [
+      {
+        "prompt_id": "tp_001",
+        "prompt": "Rédigez un email poli en français à un fournisseur à Dakar pour demander une extension de paiement de 30 jours pour la facture FACT-2024-0042, suite à un retard temporaire de trésorerie de notre entreprise. Restez sous 120 mots."
+      },
+      {
+        "prompt_id": "tp_002",
+        "prompt": "A small import/export business in West Africa has 50,000 USD in unpaid customer invoices and 30,000 USD in outstanding supplier payments. Explain three practical steps the owner should take this week to improve cash flow. Be specific and concise."
+      }
+    ],
+    "model": {
+      "name": "Qwen2.5-1.5B-Instruct-Q4_K_M",
+      "runtime": "llama.cpp",
+      "quantization": "GGUF Q4_K_M",
+      "parameters_estimate": "1.5B",
+      "packaging": "binary_bundle"
+    }
+  },
+  "environment": {
+    "measured_on": "participant_laptop",
+    "cpu_model": "Intel(R) Core(TM) i5-6200U CPU @ 2.30GHz",
+    "ram_gb": 7.6,
+    "gpu": "none",
+    "os": "Ubuntu 24.04.4 LTS"
+  },
+  "throughput": {
+    "tokens_per_second_generation": 7.47,
+    "first_token_latency_ms": 23871.06,
+    "prompt_tokens": 512,
+    "generated_tokens": 128
+  },
+  "memory": {
+    "peak_rss_mb": 1740.66,
+    "steady_state_rss_mb": 1645.08,
+    "peak_vms_mb": 2294.09
+  },
+  "accuracy": [
+    {
+      "benchmark": "arc_easy",
+      "dataset_version": "lm-eval-harness",
+      "language": "en",
+      "samples": 50,
+      "score": 0.74,
+      "metric": "acc_norm"
+    }
+  ],
+  "cpu_thermal": {
+    "cpu_percent_p99": 99.5,
+    "core_temp_c_peak": 99.0,
+    "throttled": true
+  },
+  "reproducibility": {
+    "git_commit_sha": "4d3aa1785a71",
+    "docker_image_digest": "unknown",
+    "random_seed": 42
+  },
+  "model_info": {
+    "params_count": 1777088000,
+    "context_length": 32768,
+    "architecture": "qwen2",
+    "claimed_params_estimate": "1.5B",
+    "params_match": false
+  }
+}

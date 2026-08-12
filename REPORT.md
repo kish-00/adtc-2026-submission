@@ -26,14 +26,27 @@ African small and medium enterprises — especially in Francophone West Africa �
 
 ## Benchmarks
 
-Official numbers are produced by the ADTC profiler and recorded in `submission.json` (Task 5 — profiler run pending). Self-reported development figures:
+Measured by `adtc-profiler` (participant mode) on the submission laptop.
 
 | Metric | Value |
 |---|---|
 | Machine | participant laptop (8 GB RAM, 4 vCPU, iGPU) |
-| RAM at peak | ~1.5–2.0 GB (measured by `adtc-profiler`) |
-| Time to first token | recorded in `submission.json` |
-| Generation speed | recorded in `submission.json` |
-| Thermal throttling | recorded in `submission.json` |
+| RAM at peak | 1740.66 MB |
+| Time to first token | 23871.06 ms |
+| Generation speed | 7.47 tokens/sec |
+| Thermal throttling | Yes (99.0 °C peak core temp) |
+| Accuracy (arc_easy, 50 samples) | 74.0% |
 
-These placeholders are filled by `adtc-profiler run --submission . --mode participant --output submission.json` on the evaluation machine.
+### Score estimate (formula from ADTC rules)
+- S_perf = 100 × (TPS / 15.0) = 100 × (7.47 / 15.0) = 49.80
+- S_eff  = 100 × ((7000 − peak_rss_mb) / 7000) = 100 × ((7000 − 1740.66) / 7000) = 75.13
+- S_acc  = accuracy_fraction × 100 = 0.74 × 100 = 74.00
+- P_thermal = −10 (thermal throttling was observed: core temp peaked at 99.0 °C)
+- African-language bonus = +10 (african_alpha_claim is true in metadata.json)
+
+S_total ≈ 0.50·S_acc + 0.30·S_perf + 0.20·S_eff − P_thermal + 10
+       = 0.50·74.00 + 0.30·49.80 + 0.20·75.13 − (−10) + 10
+       = 37.00 + 14.94 + 15.03 + 10 + 10
+       = 86.97
+
+(Note: the official score is computed by the ADTC organizers from submission.json; this is a self-computed estimate using the documented formula.)
