@@ -12,5 +12,4 @@ __pycache__/
 .venv/
 
 # Local profiler output
-submission.json
 audit.json
