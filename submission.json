@@ -34,7 +34,7 @@
       "name": "Qwen2.5-1.5B-Instruct-Q4_K_M",
       "runtime": "llama.cpp",
       "quantization": "GGUF Q4_K_M",
-      "parameters_estimate": "1.5B",
+      "parameters_estimate": "1.78B",
       "packaging": "binary_bundle"
     }
   },
@@ -46,33 +46,24 @@
     "os": "Ubuntu 24.04.4 LTS"
   },
   "throughput": {
-    "tokens_per_second_generation": 7.77,
-    "first_token_latency_ms": 23371.13,
+    "tokens_per_second_generation": 8.06,
+    "first_token_latency_ms": 22448.27,
     "prompt_tokens": 512,
     "generated_tokens": 128
   },
   "memory": {
-    "peak_rss_mb": 1812.26,
-    "steady_state_rss_mb": 1714.4,
-    "peak_vms_mb": 2294.09
+    "peak_rss_mb": 1821.75,
+    "steady_state_rss_mb": 1728.54,
+    "peak_vms_mb": 2294.08
   },
-  "accuracy": [
-    {
-      "benchmark": "arc_easy",
-      "dataset_version": "lm-eval-harness",
-      "language": "en",
-      "samples": 50,
-      "score": 0.74,
-      "metric": "acc_norm"
-    }
-  ],
+  "accuracy": [],
   "cpu_thermal": {
-    "cpu_percent_p99": 99.5,
-    "core_temp_c_peak": 93.0,
+    "cpu_percent_p99": 98.5,
+    "core_temp_c_peak": 90.0,
     "throttled": true
   },
   "reproducibility": {
-    "git_commit_sha": "a662e12689a0",
+    "git_commit_sha": "ad78de0f350b",
     "docker_image_digest": "unknown",
     "random_seed": 42
   },
@@ -80,7 +71,7 @@
     "params_count": 1777088000,
     "context_length": 32768,
     "architecture": "qwen2",
-    "claimed_params_estimate": "1.5B",
-    "params_match": false
+    "claimed_params_estimate": "1.78B",
+    "params_match": true
   }
 }
