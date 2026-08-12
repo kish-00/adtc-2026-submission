@@ -1,7 +1,10 @@
 {
   "team_id": "solo-submission",
   "domain": "corporate_enterprise",
-  "language_scope": ["fr", "en"],
+  "language_scope": [
+    "fr",
+    "en"
+  ],
   "african_alpha_claim": true,
   "budget_laptop_claim": true,
   "submitter": {
@@ -17,7 +20,7 @@
   "test_prompts": [
     {
       "prompt_id": "tp_001",
-      "prompt": "Draft a polite email in French to a supplier in Dakar requesting a 30-day payment extension for invoice FACT-2024-0042, due to a temporary cash flow delay. Keep it under 120 words."
+      "prompt": "Rédigez un email poli en français à un fournisseur à Dakar pour demander une extension de paiement de 30 jours pour la facture FACT-2024-0042, suite à un retard temporaire de trésorerie de notre entreprise. Restez sous 120 mots."
     },
     {
       "prompt_id": "tp_002",
