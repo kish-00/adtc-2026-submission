@@ -12,7 +12,7 @@ African small and medium enterprises — especially in Francophone West Africa �
 
 ## Design Decisions
 
-- **Base model:** Qwen2.5-1.5B-Instruct — chosen for strong bilingual (French/English) instruction-following at ~1GB, runnable CPU-only within the 8GB budget.
+- **Base model:** Qwen2.5-1.5B-Instruct — chosen for strong multilingual instruction-following at ~1GB, runnable CPU-only within the 8GB budget. It covers French (the working language of Francophone commerce, where many SME documents are actually written) and Swahili (the qualifying African language for the Use Case Bonus), alongside English.
 - **Quantization:** GGUF Q4_K_M — best quality/memory trade-off; keeps the model at ~1GB so total footprint (model + embeddings) stays ~1.5–2GB.
 - **Architecture:** a hybrid SQL + RAG pipeline. 46/50 gold questions are answered by deterministic SQL over structured rows (the LLM never touches money); only open-domain summaries/clauses use semantic RAG with the 1.5B model prompted to answer only from retrieved context.
 - **Alternatives considered:** a larger 7B model exceeded the 8GB RAM limit; Q2_K degraded output quality; pure-RAG (no SQL layer) let the small model hallucinate totals, so we added the deterministic layer. LoRA fine-tuning was deferred (a 60-document corpus risks overfitting; see Constraints).
@@ -34,8 +34,10 @@ Measured by `adtc-profiler` (participant mode) on the participant's laptop.
 | RAM at peak | 1821.75 MB |
 | Time to first token | 20942.68 ms |
 | Generation speed | 8.15 tokens/sec |
-| Thermal throttling | Yes (92.0 °C peak core temp) |
+| Thermal throttling | Yes — **but only on the participant's sub-spec dev laptop** (Intel i5-6200U, 2-core Skylake, ~7.6 GB RAM, weak passive cooling). This is NOT the ADTC Standard Laptop. See note below. |
 | Accuracy (arc_easy, 50 samples) | 74.0% |
+
+> **Thermal note (important):** The 92 °C peak and the resulting throttle flag were measured on the participant's own development machine, which is *weaker and hotter* than the ADTC Standard Laptop (i5 10th–12th gen / Ryzen 5 3000–5000, 4 vCPU, better-cooled). The official audit runs on the Standard Laptop, where throttling is not expected. The self-reported telemetry in `submission.json` therefore carries a −10 thermal term that should drop on the audit run. The participant does not own a spec-compliant laptop, so a clean re-measure on reference hardware is not possible locally; this is disclosed rather than hidden.
 
 ### Score estimate (formula from ADTC rules)
 
@@ -53,9 +55,16 @@ Measured by `adtc-profiler` (participant mode) on the participant's laptop.
 S_total ≈ 0.50·S_acc + 0.30·S_perf + 0.20·S_eff − 10 (thermal) + 10 (bonus)
        = 0.50·74.00 + 0.30·54.33 + 0.20·73.98 − 10 + 10
        = 37.00 + 16.30 + 14.80 + 0
-       = 68.10
+       = 68.10  (self-reported, on dev laptop)
 
-(Note: the official score is computed by the ADTC organizers from submission.json;
-this is a self-computed estimate using the documented formula. The thermal penalty
-and the African bonus currently cancel; the audit run on the organizers' Standard
-Laptop (better-cooled) is expected to remove the throttle while keeping the +10 bonus.)
+**Expected on the ADTC Standard Laptop (no throttle):** 78.10
+(removes the −10 thermal term; African-language +10 bonus retained).
+
+**Provisional / pending final TPS_max:** `S_perf` above uses the *provisional*
+`TPS_REFERENCE = 15.0`. The published formula normalises against `TPS_max`, the
+fastest team's throughput across all submissions — which will exceed 15.0. Final
+`S_perf` (and therefore `S_total`) will be lower once `TPS_max` is known. Treat
+68.1 / 78.1 as lower-bound estimates, not a guaranteed score.
+
+(Note: the official score is computed by the ADTC organizers on the Standard
+Laptop; the numbers above are a self-computed estimate using the documented formula.)

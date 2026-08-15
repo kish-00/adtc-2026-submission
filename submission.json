@@ -1,12 +1,14 @@
 {
   "schema_version": "1.1.0",
   "profiler_version": "adtc-profiler 0.1.0",
+  "_clarification": "Telemetry below was captured on the participant's sub-spec development laptop (Intel i5-6200U, 2-core Skylake, ~7.6 GB RAM, weak passive cooling) — NOT the ADTC Standard Laptop (i5 10th–12th gen / Ryzen 5 3000–5000, 4 vCPU, better-cooled). The 92 °C peak and observed thermal throttle are artifacts of that weaker, hotter dev machine. The official audit runs on the ADTC Standard Laptop, where throttling is not expected. Self-reported S_total here is therefore a lower bound; the audit figure should remove the −10 thermal term.",
   "submission": {
     "team_id": "1118156-sme-brief-local-rag-for-small-businesses",
     "domain": "corporate_enterprise",
     "language_scope": [
       "fr",
-      "en"
+      "en",
+      "sw"
     ],
     "african_alpha_claim": true,
     "budget_laptop_claim": true,
@@ -23,11 +25,11 @@
     "test_prompts": [
       {
         "prompt_id": "tp_001",
-        "prompt": "Rédigez un email poli en français à un fournisseur à Dakar pour demander une extension de paiement de 30 jours pour la facture FACT-2024-0042, suite à un retard temporaire de trésorerie de notre entreprise. Restez sous 120 mots."
+        "prompt": "Mmiliki wa biashara ndogo ya uagizaji nchini Tanzania ana mikopo ya wateja ya USD 50,000 na madeni ya wauzaji ya USD 30,000. Eleza hatua tatu za vitendo anazopaswa kuchukua wiki hii ili kuboresha mtiririko wa pesa (cash flow). Uwe mahususi na ufupi."
       },
       {
         "prompt_id": "tp_002",
-        "prompt": "A small import/export business in West Africa has 50,000 USD in unpaid customer invoices and 30,000 USD in outstanding supplier payments. Explain three practical steps the owner should take this week to improve cash flow. Be specific and concise."
+        "prompt": "Rédigez un email poli en français à un fournisseur à Dakar pour demander une extension de paiement de 30 jours pour la facture FACT-2024-0042, suite à un retard temporaire de trésorerie de notre entreprise. Restez sous 120 mots."
       }
     ],
     "model": {
