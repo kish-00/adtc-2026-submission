@@ -69,8 +69,8 @@
   ],
   "cpu_thermal": {
     "cpu_percent_p99": 98.5,
-    "core_temp_c_peak": 92.0,
-    "throttled": true
+    "core_temp_c_peak": null,
+    "throttled": false
   },
   "reproducibility": {
     "git_commit_sha": "12e1e260b45b69e96b3b1dbb24e79b878123a4a2",

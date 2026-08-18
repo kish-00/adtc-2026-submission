@@ -31,7 +31,7 @@ adtc-2026-submission/
 ├── metadata.json          ← Team, model, and test prompt metadata.
 ├── download_model.sh      ← Downloads the .gguf model weight file.
 ├── REPORT.md              ← Technical writeup (problem, design, benchmarks).
-├── submission.json        ← Profiler telemetry (throughput, memory, thermals, accuracy).
+├── submission.json        ← Profiler telemetry (throughput, memory, accuracy).
 ├── model/
 │   └── qwen2.5-1.5b-instruct-q4_k_m.gguf   ← Downloaded by the script above. Not committed.
 └── .gitignore             ← Excludes *.gguf and model/ from version control.

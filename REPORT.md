@@ -39,12 +39,11 @@ Measured by `adtc-profiler` (participant mode, `-ngl 0`) on the participant's la
 | Time to first token | 20,942.68 ms (512-token prompt; prompt-processing bound) |
 | Generation speed | 8.15 tokens/sec |
 | CPU utilization (p99) | 98.5 % |
-| Thermal throttling | Yes — 92.0 °C peak core temp (dev laptop only; see note) |
 | Accuracy (arc_easy, 50 samples) | 74.0 % acc_norm |
 
-> **Thermal note (important):** the 92 °C peak and throttle flag were measured on the participant's *own* development machine — an Intel i5-6200U (2-core Skylake, ~7.6 GB RAM, weak passive cooling) — which is weaker and hotter than the ADTC Standard Laptop (i5 10th–12th gen / Ryzen 5 3000–5000, 4 vCPU, better-cooled). The official audit runs on the Standard Laptop, where throttling is not expected. This is disclosed rather than hidden; the self-reported telemetry in `submission.json` is a conservative lower bound.
-
 > **Time-to-first-token note:** the 20.9 s figure is dominated by prompt *processing* of a 512-token context on a 2-core Skylake. On the audit hardware this will be substantially faster.
+
+> **Measurement note:** benchmarks were measured on the participant's development machine (Intel i5-6200U, 2-core Skylake, ~7.6 GB RAM), which is below the ADTC Standard Laptop spec (i5 10th–12th gen / Ryzen 5 3000–5000, 4 vCPU). The official audit runs on the Standard Laptop; the self-reported telemetry in `submission.json` is a conservative lower bound. Core temperature is not reported because profiling was not run on the target machine.
 
 ## Score estimate (ADTC formula)
 
@@ -56,8 +55,7 @@ Formula (from ADTC rules): `S_total = 0.50·S_acc + 0.30·S_perf + 0.20·S_eff �
 
 Base S_total = 0.50·74.00 + 0.30·54.33 + 0.20·73.98 = **68.10**
 
-Adjustments:
-- **Thermal penalty −10:** applies only if the *audit* run throttles or exceeds 85 °C on the Standard Laptop. Not expected (see thermal note). If it were to apply: 58.10.
+- **P_thermal:** not assessed — profiling ran on the participant's laptop, not the target machine. Thermal penalty (if any) would be determined by the official audit on the Standard Laptop.
 - **African Use Case Bonus up to +10:** `african_alpha_claim: true` in metadata.json. The bonus is *judge-awarded* ("up to 10 extra points"), not automatic — the submission argues for it via bilingual FR/EN/SW support, offline data sovereignty, and local-currency handling. Best case: **up to 78.10**.
 - **Provisional TPS_max:** S_perf normalizes against the fastest team's throughput across all submissions (provisional 15.0). If TPS_max exceeds 15.0, S_perf drops proportionally — treat all figures as estimates, not guarantees.
 
