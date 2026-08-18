@@ -1,6 +1,6 @@
 # ADTC 2026 — Submission: SME Brief
 
-**SME Brief** — offline bilingual (French / English / Swahili) assistant for small-business finance, running on an 8 GB laptop via llama.cpp.
+**SME Brief** — offline bilingual (French / English) assistant for small-business finance, running on an 8 GB laptop via llama.cpp.
 
 - **Team ID:** `1118156-sme-brief-local-rag-for-small-businesses`
 - **Domain:** `corporate_enterprise` · small-business finance
@@ -14,7 +14,7 @@
 
 - [x] Repository is **public** on GitHub
 - [x] `metadata.json` is fully filled in — no placeholder values remain
-- [x] `metadata.json` contains exactly **2 test prompts** in the chosen domain (`tp_001` Swahili, `tp_002` French)
+- [x] `metadata.json` contains exactly **2 test prompts** in the chosen domain (`tp_001` English, `tp_002` French)
 - [x] `download_model.sh` successfully downloads the model to `model/`
 - [x] The downloaded file is a valid **GGUF format** (`.gguf`) weight file
 - [x] `model/*.gguf` is listed in `.gitignore` — weights are not committed
@@ -45,11 +45,11 @@ Filled in (no placeholders):
 |---|---|
 | `team_id` | `1118156-sme-brief-local-rag-for-small-businesses` |
 | `domain` | `corporate_enterprise` |
-| `language_scope` | `fr`, `en`, `sw` |
+| `language_scope` | `fr`, `en` |
 | `african_alpha_claim` | `true` |
 | `budget_laptop_claim` | `true` |
 | `cross_disciplinary_pairing` | `small_business_finance` (load-bearing) |
-| `test_prompts` | 2 — Swahili cash-flow advice (`tp_001`), French supplier email (`tp_002`) |
+| `test_prompts` | 2 — English cash-flow advice (`tp_001`), French supplier email (`tp_002`) |
 | `model` | Qwen2.5-1.5B-Instruct, llama.cpp, GGUF Q4_K_M, 1.78B |
 | `_runtime.model_path` | `model/qwen2.5-1.5b-instruct-q4_k_m.gguf` |
 

@@ -9,11 +9,11 @@
 
 ## Problem
 
-African small and medium enterprises — especially in Francophone and Swahili-speaking markets — keep their financial records in scattered PDFs, scans, and contracts, almost always in French, English, or Swahili, rarely in a structured database. They cannot rely on cloud AI assistants: connectivity is intermittent, and sending sensitive financial documents to a third-party API is a sovereignty, security, and cost non-starter. The target user is the owner of a small import/export or trading business operating across language borders — the kind of business whose "database" is a pile of supplier invoices, customer statements, and lease contracts.
+African small and medium enterprises — especially in Francophone West Africa — keep their financial records in scattered PDFs, scans, and contracts, almost always in French or English, rarely in a structured database. They cannot rely on cloud AI assistants: connectivity is intermittent, and sending sensitive financial documents to a third-party API is a sovereignty, security, and cost non-starter. The target user is the owner of a small import/export or trading business operating across language borders — the kind of business whose "database" is a pile of supplier invoices, customer statements, and lease contracts.
 
 ## Design Decisions
 
-- **Base model:** Qwen2.5-1.5B-Instruct — chosen for strong multilingual instruction-following at ~1 GB, runnable CPU-only within the 8 GB budget. It covers French (the working language of Francophone commerce), Swahili (the qualifying African language for the Use Case Bonus), and English.
+- **Base model:** Qwen2.5-1.5B-Instruct — chosen for strong multilingual instruction-following at ~1 GB, runnable CPU-only within the 8 GB budget. It covers French (the working language of Francophone commerce) and English.
 - **Quantization:** GGUF Q4_K_M — the best quality/memory trade-off at this size; keeps the model at ~1.04 GB so the total footprint (model + embeddings) stays ~1.5–2 GB, well within the 7 GB application budget.
 - **Runtime:** llama.cpp — CPU-only, no GPU required, matching the ADTC Standard Laptop profile exactly. No other runtime is supported by the evaluation framework.
 - **Alternatives considered:**
@@ -56,7 +56,7 @@ Formula (from ADTC rules): `S_total = 0.50·S_acc + 0.30·S_perf + 0.20·S_eff �
 Base S_total = 0.50·74.00 + 0.30·54.33 + 0.20·73.98 = **68.10**
 
 - **P_thermal:** not assessed — profiling ran on the participant's laptop, not the target machine. Thermal penalty (if any) would be determined by the official audit on the Standard Laptop.
-- **African Use Case Bonus up to +10:** `african_alpha_claim: true` in metadata.json. The bonus is *judge-awarded* ("up to 10 extra points"), not automatic — the submission argues for it via bilingual FR/EN/SW support, offline data sovereignty, and local-currency handling. Best case: **up to 78.10**.
+- **African Use Case Bonus up to +10:** `african_alpha_claim: true` in metadata.json. The bonus is *judge-awarded* ("up to 10 extra points"), not automatic — the submission argues for it via its African-market focus (Francophone/anglophone SME finance), offline data sovereignty, and local-currency handling. Best case: **up to 78.10**.
 - **Provisional TPS_max:** S_perf normalizes against the fastest team's throughput across all submissions (provisional 15.0). If TPS_max exceeds 15.0, S_perf drops proportionally — treat all figures as estimates, not guarantees.
 
 > Note: the official score is computed by the ADTC organizers on the Standard Laptop; these are self-computed estimates using the documented formula. `submission.json` was regenerated and validates against `adtc-profiler`'s published JSON schema.

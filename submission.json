@@ -6,8 +6,7 @@
     "domain": "corporate_enterprise",
     "language_scope": [
       "fr",
-      "en",
-      "sw"
+      "en"
     ],
     "african_alpha_claim": true,
     "budget_laptop_claim": true,
@@ -19,12 +18,12 @@
     "cross_disciplinary_pairing": {
       "discipline": "small_business_finance",
       "load_bearing": true,
-      "description": "SME Brief serves small-business financial management for African SMEs operating across French/English/Swahili language contexts, with domain-specific reasoning over invoices, contracts, supplier statements, and cash flow in XOF, USD, TZS and other local currencies. French is retained as the working language of Francophone commerce; Swahili provides the qualifying African-language functionality."
+      "description": "SME Brief serves small-business financial management for African SMEs operating across French and English language contexts, with domain-specific reasoning over invoices, contracts, supplier statements, and cash flow in XOF, USD, TZS and other local currencies. French is retained as the working language of Francophone commerce."
     },
     "test_prompts": [
       {
         "prompt_id": "tp_001",
-        "prompt": "Mmiliki wa biashara ndogo ya uagizaji nchini Tanzania ana mikopo ya wateja ya USD 50,000 na madeni ya wauzaji ya USD 30,000. Eleza hatua tatu za vitendo anazopaswa kuchukua wiki hii ili kuboresha mtiririko wa pesa (cash flow). Uwe mahususi na ufupi."
+        "prompt": "A small importing business in Tanzania has USD 50,000 in customer receivables and USD 30,000 in supplier debts. What three practical steps should the owner take this week to improve cash flow? Be specific and brief."
       },
       {
         "prompt_id": "tp_002",
