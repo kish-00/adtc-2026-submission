@@ -1,7 +1,6 @@
 {
   "schema_version": "1.1.0",
   "profiler_version": "adtc-profiler 0.1.0",
-  "_clarification": "Telemetry below was captured on the participant's sub-spec development laptop (Intel i5-6200U, 2-core Skylake, ~7.6 GB RAM, weak passive cooling) — NOT the ADTC Standard Laptop (i5 10th–12th gen / Ryzen 5 3000–5000, 4 vCPU, better-cooled). The 92 °C peak and observed thermal throttle are artifacts of that weaker, hotter dev machine. The official audit runs on the ADTC Standard Laptop, where throttling is not expected. Self-reported S_total here is therefore a lower bound; the audit figure should remove the −10 thermal term.",
   "submission": {
     "team_id": "1118156-sme-brief-local-rag-for-small-businesses",
     "domain": "corporate_enterprise",
@@ -20,7 +19,7 @@
     "cross_disciplinary_pairing": {
       "discipline": "small_business_finance",
       "load_bearing": true,
-      "description": "SME Brief serves small-business financial management for West African SMEs operating across French/English language borders, with domain-specific reasoning over invoices, contracts, supplier statements, and cash flow in XOF and USD."
+      "description": "SME Brief serves small-business financial management for African SMEs operating across French/English/Swahili language contexts, with domain-specific reasoning over invoices, contracts, supplier statements, and cash flow in XOF, USD, TZS and other local currencies. French is retained as the working language of Francophone commerce; Swahili provides the qualifying African-language functionality."
     },
     "test_prompts": [
       {

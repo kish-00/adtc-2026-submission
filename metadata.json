@@ -18,16 +18,16 @@
     "load_bearing": true,
     "description": "SME Brief serves small-business financial management for African SMEs operating across French/English/Swahili language contexts, with domain-specific reasoning over invoices, contracts, supplier statements, and cash flow in XOF, USD, TZS and other local currencies. French is retained as the working language of Francophone commerce; Swahili provides the qualifying African-language functionality."
   },
-    "test_prompts": [
-      {
-        "prompt_id": "tp_001",
-        "prompt": "Mmiliki wa biashara ndogo ya uagizaji nchini Tanzania ana mikopo ya wateja ya USD 50,000 na madeni ya wauzaji ya USD 30,000. Eleza hatua tatu za vitendo anazopaswa kuchukua wiki hii ili kuboresha mtiririko wa pesa (cash flow). Uwe mahususi na ufupi."
-      },
-      {
-        "prompt_id": "tp_002",
-        "prompt": "Rédigez un email poli en français à un fournisseur à Dakar pour demander une extension de paiement de 30 jours pour la facture FACT-2024-0042, suite à un retard temporaire de trésorerie de notre entreprise. Restez sous 120 mots."
-      }
-    ],
+  "test_prompts": [
+    {
+      "prompt_id": "tp_001",
+      "prompt": "Mmiliki wa biashara ndogo ya uagizaji nchini Tanzania ana mikopo ya wateja ya USD 50,000 na madeni ya wauzaji ya USD 30,000. Eleza hatua tatu za vitendo anazopaswa kuchukua wiki hii ili kuboresha mtiririko wa pesa (cash flow). Uwe mahususi na ufupi."
+    },
+    {
+      "prompt_id": "tp_002",
+      "prompt": "Rédigez un email poli en français à un fournisseur à Dakar pour demander une extension de paiement de 30 jours pour la facture FACT-2024-0042, suite à un retard temporaire de trésorerie de notre entreprise. Restez sous 120 mots."
+    }
+  ],
   "model": {
     "name": "Qwen2.5-1.5B-Instruct-Q4_K_M",
     "runtime": "llama.cpp",

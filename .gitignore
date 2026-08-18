@@ -1,15 +1,49 @@
-# Model weights — never commit these to git
+# ── ADTC submission contract ────────────────────────────────────────
+# Model weights — never commit these to git. The evaluator downloads
+# weights fresh via download_model.sh.
 model/*.gguf
 model/*.bin
 model/*.safetensors
 
-# macOS
-.DS_Store
+# App-runtime model dir (embeddings downloaded by scripts/download_models.py)
+models/
 
-# Python
+# ── Python ──────────────────────────────────────────────────────────
 __pycache__/
-*.pyc
+*.py[cod]
+*.egg-info/
+venv/
 .venv/
+
+# Runtime vector store + generated data
+data/chroma/
+data/synthetic/documents/
+data/smebrief.db
+
+# Uploaded documents (runtime)
+uploads/
+!uploads/.gitkeep
+
+# Streamlit cache
+.streamlit/
 
 # Local profiler output
 audit.json
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment
+.env
+
+# Codegraph index
+.codegraph
+
+# OpenCode session data
+.omo/
+.gstack/
