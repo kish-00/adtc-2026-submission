@@ -13,3 +13,6 @@ __pycache__/
 
 # Local profiler output
 audit.json
+
+# Session/continuation artifacts
+.omo/
